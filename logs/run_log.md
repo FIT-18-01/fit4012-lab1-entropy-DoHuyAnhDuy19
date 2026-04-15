@@ -1,9 +1,9 @@
 # Run Log – FIT4012 Lab 1
 
 ## Entropy / Redundancy
-- [ ] Đã chạy với input `aaaa`
-- [ ] Đã chạy với input `abcd`
-- [ ] Đã chạy với input `hello world`
+- [X] Đã chạy với input `aaaa`
+- [X] Đã chạy với input `abcd`
+- [X] Đã chạy với input `hello world`
 
 ## Modulo inverse
 - [ ] Đã chạy với `3 7`
