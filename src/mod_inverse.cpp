@@ -27,31 +27,19 @@ int extended_euclid(int a, int b, int &x, int &y) {
 
 int mod_inverse(int a, int m) {
     int x, y;
-    // Bước 1: Gọi hàm extended_euclid để tìm x và y
     int g = extended_euclid(a, m, x, y);
-
-    // Bước 2: Kiểm tra điều kiện tồn tại (gcd phải bằng 1)
-    if (g != 1) {
-        return -1;
-    }
-
-    // Bước 3: Đưa x về số dương trong khoảng [0, m-1]
+    if (g != 1) return -1;
     return (x % m + m) % m;
 }
 
 int main() {
-    int a = 0, m = 0;
-    cout << "Nhap a, m: ";
+    int a, m;
+    cout << "Nhap a va m: ";
     cin >> a >> m;
-
-    if (gcd(a, m) != 1) {
-        cout << "Khong ton tai nghich dao modulo vi gcd(a, m) != 1.\n";
-        return 0;
-    }
-
     int inv = mod_inverse(a, m);
-    cout << "Nghich dao cua " << a << " mod " << m << " la: " << inv << '\n';
-    cout << "Kiem tra: " << a << " * " << inv << " % " << m
-         << " = " << (1LL * a * inv % m) << '\n';
+    if (inv == -1) 
+        cout << "Khong ton tai nghich dao modulo." << endl;
+    else 
+        cout << "Nghich dao modulo la: " << inv << endl;
     return 0;
 }
