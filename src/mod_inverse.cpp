@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int gcd(int a, int b) {
@@ -13,12 +12,10 @@ int gcd(int a, int b) {
 
 int extended_euclid(int a, int b, int &x, int &y) {
     if (b == 0) {
-        x = 1;
-        y = 0;
+        x = 1; y = 0;
         return a;
     }
-
-    int x1 = 0, y1 = 0;
+    int x1, y1;
     int g = extended_euclid(b, a % b, x1, y1);
     x = y1;
     y = x1 - (a / b) * y1;
@@ -34,12 +31,9 @@ int mod_inverse(int a, int m) {
 
 int main() {
     int a, m;
-    cout << "Nhap a va m: ";
-    cin >> a >> m;
+    if (!(cin >> a >> m)) return 0;
     int inv = mod_inverse(a, m);
-    if (inv == -1) 
-        cout << "Khong ton tai nghich dao modulo." << endl;
-    else 
-        cout << "Nghich dao modulo la: " << inv << endl;
+    if (inv == -1) cout << "Khong ton tai nghich dao modulo." << endl;
+    else cout << "Nghich dao cua " << a << " mod " << m << " la: " << inv << endl;
     return 0;
 }
